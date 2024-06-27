@@ -29,16 +29,22 @@ app.listen(3000, async ()=>{
     // await tweet.save();
     // console.log(tweet);
 
+    // const tweetRepo = new TweetRepository();
+    // const tweet = await tweetRepo.create({content: 'Tweet with comment schema'});
+    // console.log(tweet);
+    // const comment = await Comment.create({content: 'new comment'});
+    // tweet.comments.push(comment);
+    // await tweet.save();
+    // console.log(tweet);
+
+    // const getComment = await tweetRepo.getWithComment("667c42769f195c21b19220bf");
+    // console.log(getComment);
+
+    // Page innation 
     const tweetRepo = new TweetRepository();
-    const tweet = await tweetRepo.create({content: 'Tweet with comment schema'});
-    console.log(tweet);
-    const comment = await Comment.create({content: 'new comment'});
-    tweet.comments.push(comment);
-    await tweet.save();
+    const tweet = await tweetRepo.getAll(2,4);
     console.log(tweet);
 
-    const getComment = await tweetRepo.getWithComment("667c42769f195c21b19220bf");
-    console.log(getComment);
     
 });
 
