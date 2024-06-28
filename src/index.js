@@ -41,8 +41,13 @@ app.listen(3000, async ()=>{
     // console.log(getComment);
 
     // Page innation 
+    // const tweetRepo = new TweetRepository();
+    // const tweet = await tweetRepo.getAll(2,4);
+    // console.log(tweet);
+
+    //hooks
     const tweetRepo = new TweetRepository();
-    const tweet = await tweetRepo.getAll(2,4);
+    const tweet = await tweetRepo.create({content: 'With hooks'});
     console.log(tweet);
 
     
