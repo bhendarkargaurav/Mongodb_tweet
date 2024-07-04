@@ -3,7 +3,7 @@ import {connect} from './config/database.js'
 const app = express();
 
 import service from './services/tweet-service.js'
-import  TweetRepository from './repository/tweet-repository.js'
+// import  TweetRepository from './repository/tweet-repository.js'
 
 app.listen(3000, async ()=>{
     console.log('Server Started');
@@ -11,7 +11,7 @@ app.listen(3000, async ()=>{
     console.log("Mongo db connected");
 
     let ser = new service();
-    await ser.create({content: 'Done with #refactor ?'})
+    await ser.create({content: 'Gaurav #codes #WOrKs #exited for new job'})
 
 
     // const tweet = await Tweet.create({

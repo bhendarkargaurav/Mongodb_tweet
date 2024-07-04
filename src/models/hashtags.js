@@ -3,7 +3,7 @@ const hashtagSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
-        // unique: true
+        unique: true // part indexing in mongo
     },
     tweets: [
         {
@@ -15,10 +15,10 @@ const hashtagSchema = new mongoose.Schema({
 
 // hashtagSchema.pre('save', function (next) {
 //     console.log(this);
-//     this.title.toLowerCase();
+//     this.title = this.title.toLowerCase();
 //     console.log(this);
 //     next();
-// });
+// })
 
 const Hashtag = mongoose.model('Hashtag', hashtagSchema);
 export default Hashtag;
