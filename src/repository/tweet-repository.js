@@ -1,5 +1,5 @@
 import Tweet from '../models/tweet.js ';
-import CrudRepository from './crud-repository';
+import CrudRepository from './crud-repository.js';
 
 class TweetRepository extends CrudRepository {
     constructor(){
@@ -23,19 +23,21 @@ class TweetRepository extends CrudRepository {
         }
     }
 
-    // async update(tweetId, data){
-    //     try {
-    //         const tweet = await Tweet.findByIdAndUpdate(tweetId, data, {new: true});
-    //         return tweet;         // this new: true give us the latest data
-    //     } catch (error) {
-    //         console.log("error")
-    //     }
-    // }
 
     async getAll(offset, limit){
         try {
             const tweet = await Tweet.find().skip(offset).limit(limit);
             return tweet; 
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async find(id) {
+        try {
+            const tweet = await Tweet.findById(id).populate({path: 'likes'})     // .exec make it a promise base
+            // console.log(tweet);
+            return tweet;
         } catch (error) {
             console.log(error);
         }

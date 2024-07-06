@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 // there is a structure of following coding
 // like model is ready
 // this is areal writing schema
-const likeSchema = new mongoose.schema({
+const likeSchema = new mongoose.Schema({
     // on which model we are going to like
     // are u going to like on tweet or like on comment
     onModel: {
