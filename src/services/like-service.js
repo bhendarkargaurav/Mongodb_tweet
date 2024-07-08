@@ -1,5 +1,7 @@
+import Tweet from '../models/tweet.js'
 import { LikeRepository, TweetRepository } from '../repository/index.js';
 
+// console.log('likes is', like)
 class LikeService {
     constructor() {
         this.likeRepository = new LikeRepository();
@@ -7,11 +9,13 @@ class LikeService {
     }
 
     async toggleLike(modelId, modelType, userId) { // /api/v1/likes/toggle?id=modelid&type=Tweet
-        console.log(modelId);
-        if(modelType = 'Tweet') {
+        console.log(modelId, modelType, userId);
+        if(modelType == 'Tweet') {
             var likeable = await this.tweetRepository.find(modelId);
 
-        } else if(modelType = 'Comment') {
+           
+
+        } else if(modelType == 'Comment') {
             //ToDo
 
         } else {
@@ -24,10 +28,14 @@ class LikeService {
             onModel: modelType,
             likeable: modelId
         });
+       
+        // console.log('exists', typeof(exists));
          if(exists) {
-            likeable.likes.pull(exists.id);
+            likeable.likes.pull(exists.id); // uncomment it #problem
             await likeable.save();
-            await exists.remove();
+            await exists.deleteOne();       // uncomment it  #Problem
+            
+
             var isAdded = false;
 
          }else {
@@ -37,7 +45,7 @@ class LikeService {
                 likeable: modelId
             });
              // Add the like
-            // likeable.likes.push(newLike);    // 1 error this is a error will solve it
+            likeable.likes.push(newLike);    // 1 error this is a error will solve it
             // Save the updated tweet
             await likeable.save();
 

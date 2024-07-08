@@ -9,7 +9,7 @@ class LikeRepository extends CrudRepository {
     async findByUserAndLikeable(data) {
         try {
             const like = await Like.findOne(data);
-            // return like;          // connected with like service
+            return like;          // connected with like service
         } catch (error) {
             throw error;
         }
