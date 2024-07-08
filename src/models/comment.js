@@ -10,20 +10,20 @@ const commentSchema = new mongoose.Schema({
         ref: 'User',
         require: true
     },
-    onmodel: {
+    onmodel: {  // onmodel tell us that comment was made on a tweet and comment was maide on a comment
         type: String,
         required: true,
-        enum: ['Tweet', 'Comment']
-    },
-    commentable: {
+        enum: ['Tweet', 'Comment']// comnment on a tweet or comment on a comment only
+    }, 
+    commentable: {// like likeable
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         refPath: 'onModel'
     },
-    comments: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Comment',
-    }
+    // comments: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'Comment',
+    // }
 
 }, {timestamps: true});
 

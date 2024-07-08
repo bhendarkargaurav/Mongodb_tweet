@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
 // this is areal writing schema
 const likeSchema = new mongoose.Schema({
     // on which model we are going to like
-    // are u going to like on tweet or like on comment
+    // or we are going to like on multiple tweet or like on comment
     onModel: {
         type: String,
         required: true,
