@@ -20,11 +20,19 @@ const commentSchema = new mongoose.Schema({
         required: true,
         refPath: 'onModel'
     },
-    // comments: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'Comment',
-    // }
 
+     // likes: {   // storing comment like likes are stored in tweet.js
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'likes',
+    // }
+    
+    //we are putting comments in tweet.js and comment.js, so we need to manage it differntly
+    comments: [
+        {   // storing comment like likes are stored in tweet.js
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Comment',
+        } 
+    ]
 }, {timestamps: true});
 
 const Comment = mongoose.model('Comment', commentSchema);
