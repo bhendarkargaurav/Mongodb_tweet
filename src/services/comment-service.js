@@ -8,7 +8,9 @@ class CommentService {
     // creating a comment
     async create(modelId, modelType, userId, content) {
         if(modelType == 'Tweet') {
+            console.log("inside model type");
             var commentable = await this.tweetRepository.get(modelId); //1
+           console.log(commentable);
         }
         else if(modelType == 'Comment') {
             var commentable = await this.commentRepository.get(modelId);//1
@@ -22,7 +24,7 @@ class CommentService {
             userId: userId,
             onModel: modelType,
             commentable: modelId,
-            comments: []
+            comments: [] // new comment array
         });
         commentable.comments.push(comment);
         await commentable.save();

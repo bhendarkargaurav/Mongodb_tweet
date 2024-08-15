@@ -19,33 +19,7 @@ app.listen(3000, async () => {
     await connect();
     console.log("Mongo db connected");
 
-    // const userRepo = new UserRepository();
-    // const tweetRepo = new TweetRepository();
-    // const tweets = await tweetRepo.getAll(0, 10);
-    // const user = await userRepo.getAll();
-    // const likeService = new LikeService();
-    // await likeService.toggleLike(tweets[0].id, 'Tweet', user[0].id);
-
-
-
-    
-    // const tweet = await Tweet.create({
-    //     content: 'Second tweet',
-    //     userEmail: 'a@c.com'
-    // });
-
-    // const tweets = await Tweet.find({userEmail: 'a@c.com'});    //1
-    // console.log(tweets);
-
-    // const tweetRepo = new TweetRepository();
-    // const tweet = await tweetRepo.update('667c1c4461f86b9b2fa7d0f6', 
-    //         {content: 'my tweet is working'});
-
-    // const tweetRepo = new TweetRepository();
-    // const tweet = await tweetRepo.create({content: 'tweet with a comment'});
-    // tweet.comments.push({content: 'first comment here'});
-    // await tweet.save();
-    // console.log(tweet);
+  
 
     // const tweetRepo = new TweetRepository();
     // const tweet = await tweetRepo.create({content: 'Tweet with comment schema'});

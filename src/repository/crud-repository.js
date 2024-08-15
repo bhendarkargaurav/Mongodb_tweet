@@ -1,4 +1,4 @@
-import Tweet from '../models/tweet.js';
+import Tweet from "../models/tweet.js";
 
 class CrudRepository {
     constructor(model) {
@@ -7,11 +7,11 @@ class CrudRepository {
 
     async create(data) {
         try {
-            console.log(data);
+            console.log("Creating document with data:", data);
             const result = await this.model.create(data);
             return result;
         } catch (error) {
-            console.log("something went wrong in crud repo");
+            console.error("Error in create method:", error);
             throw error;
         }
     }
@@ -19,9 +19,12 @@ class CrudRepository {
     async destroy(id) {
         try {
             const result = await this.model.findByIdAndDelete(id);
+            if (!result) {
+                throw new Error("Document not found");
+            }
             return result;
         } catch (error) {
-            console.log("somethin went wrong in the crud repo");
+            console.error("Error in destroy method:", error);
             throw error;
         }
     }
@@ -29,9 +32,12 @@ class CrudRepository {
     async get(id) {
         try {
             const result = await this.model.findById(id);
+            if (!result) {
+                throw new Error("Document not found");
+            }
             return result;
         } catch (error) {
-            console.log("somethin went wrong in the crud repo");
+            console.error("Error in get method:", error);
             throw error;
         }
     }
@@ -41,17 +47,20 @@ class CrudRepository {
             const result = await this.model.find({});
             return result;
         } catch (error) {
-            console.log("somethin went wrong in the crud repo");
+            console.error("Error in getAll method:", error);
             throw error;
         }
     }
 
-    async update(id, data){
+    async update(id, data) {
         try {
-            const result = await this.model.findByIdAndUpdate(id, data, {new: true});
+            const result = await this.model.findByIdAndUpdate(id, data, { new: true });
+            if (!result) {
+                throw new Error("Document not found");
+            }
             return result;
         } catch (error) {
-            console.log("Something went wrong in crud repo");
+            console.error("Error in update method:", error);
             throw error;
         }
     }
