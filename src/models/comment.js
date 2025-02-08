@@ -1,3 +1,7 @@
+// The commentSchema you’ve provided defines a MongoDB schema using Mongoose for a Comment
+// model. This schema is designed to handle a flexible and nested commenting system where 
+//comments can be made either on a tweet or on another comment. 
+
 import mongoose from 'mongoose';
 
 const commentSchema = new mongoose.Schema({

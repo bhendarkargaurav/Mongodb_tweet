@@ -1,4 +1,4 @@
-import Tweet from '../models/tweet.js'
+
 import { LikeRepository, TweetRepository } from '../repository/index.js';
 
 // console.log('likes is', like)
