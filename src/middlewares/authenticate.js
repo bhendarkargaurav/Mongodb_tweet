@@ -12,3 +12,4 @@ export const authenticate = (req, res, next) => {
         next();
     })(req, res, next);
 }
+
