@@ -12,7 +12,7 @@ const likeSchema = new mongoose.Schema({
         enum: ['Tweet', 'Comment']
     },
     likeable: {
-        // whenever we loke a comment or like a tweet we need to store their id
+        // whenever we like a comment or like a tweet we need to store their id
         // if like on tweet, tweet id will store, if comment, comment id will store
         type: mongoose.Schema.Types.ObjectId,
         required: true,
@@ -26,5 +26,4 @@ const likeSchema = new mongoose.Schema({
 }, {Timestamps: true});
 
 const Like = mongoose.model('Like', likeSchema);
-
 export default Like;
