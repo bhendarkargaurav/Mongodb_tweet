@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
     }
 }, {timestamps: true});
 
-userSchema.pre('save', function(next) {
+userSchema.pre('save', function(next) {        // hook/eventdriven
     const user = this;
     const SALT = bcrypt.genSaltSync(9);
     const encryptedPassword = bcrypt.hashSync(user.password, SALT);
