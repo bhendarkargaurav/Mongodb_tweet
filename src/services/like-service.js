@@ -28,8 +28,10 @@ class LikeService {
             onModel: modelType,
             likeable: modelId
         });
+
+
        
-        // console.log('exists', typeof(exists));
+        console.log('exists', typeof(exists));
          if(exists) {
             likeable.likes.pull(exists.id); // uncomment it #problem
             await likeable.save();
@@ -52,7 +54,10 @@ class LikeService {
             var isAdded = true;
          }
          return isAdded;
-    }
+    
+
+}
+
 }
 
 export default LikeService;
