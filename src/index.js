@@ -5,7 +5,6 @@ import cors from 'cors';
 
 
 import {connect} from './config/database.js';
-// import {} from './config/serverConfig.js';
 import { passportAuth } from './config/jwt-middleware.js';
 
 import apiRoutes from './routes/index.js';
@@ -21,7 +20,7 @@ passportAuth(passport);
 app.use('/api', apiRoutes);
 
 
-app.listen(3000, async () => {
+app.listen(3001, async () => {
     console.log('server started');
     await connect();
     console.log('Mongo db connected');
