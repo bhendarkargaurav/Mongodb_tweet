@@ -16,14 +16,14 @@ class TweetRepository extends CrudRepository {
         }
     }
 
-    async getWithComments(id) {
+    async getWithComments(id) { // fetch a tweet along with its comments 
         try {
             const tweet = await Tweet.findById(id).populate({
                 path: 'comments',
                 populate: {
                     path: 'comments'
                 }
-            }).lean();
+            }).lean(); // Convert Mongoose document to plain JSON object
             return tweet;
         } catch (error) {
             console.log(error);
@@ -32,14 +32,16 @@ class TweetRepository extends CrudRepository {
 
     async getAll(offset, limit) {       // page innation
         try {
-            const tweet = await Tweet.find().skip(offset).limit(limit);
-            return tweet;
+            const tweet = await Tweet.find()
+            .skip(offset)
+            .limit(limit);
+        return tweet;
         } catch (error) {
             console.log(error);
         }
     }
 
-    async find(id) {
+    async find(id) { // find a tweet to populate the who liked the tweet.
         try {
             const tweet = await Tweet.findById(id).populate({path: 'likes'});
             return tweet;
